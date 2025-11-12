@@ -284,7 +284,7 @@ export default function Test1() {
                   textDecoration: "underline",
                 }}
               >
-                Exercițiul {q.nr}
+                {`Exercițiul ${q.nr}`}
               </p>
               <p style={{ fontSize: "18px", textAlign: "left" }}>{renderWithLatex(q.text)}</p>
             </div>
