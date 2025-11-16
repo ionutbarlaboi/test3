@@ -90,11 +90,12 @@ export default function Test1() {
   };
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "700px", margin: "auto", textAlign: "center" }}>
+    <div style={{ padding: "1rem", maxWidth: "700px", margin: "auto", textAlign: "center" }}>
       <h2
         style={{
           fontSize: "28px",
           fontWeight: "bold",
+          marginTop: "0",
           marginBottom: "1rem",
           background: "linear-gradient(90deg, #0070f3, #00c6ff)",
           WebkitBackgroundClip: "text",
