@@ -1,33 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function HomePage() {
-  const [lang, setLang] = useState("ro");
-
-  useEffect(() => {
-    const storedLang = localStorage.getItem("lang");
-    if (storedLang) setLang(storedLang);
-  }, []);
-
-  const toggleLang = () => {
-    const newLang = lang === "ro" ? "en" : "ro";
-    setLang(newLang);
-    localStorage.setItem("lang", newLang);
-  };
-
   // 🔧 Setări ajustabile
   const cartoonWidth = 400;
   const cartoonHeight = 200;
   const startButtonOffset = 80; // distanță sub imagine
   const topButtonsOffset = 100; // distanță de sus (poți modifica)
   const buttonsGap = 20;
-
-  const text = {
-    ro: { start: "Hai să începem" },
-    en: { start: "Let's start" },
-  };
 
   return (
     <main
@@ -54,17 +35,17 @@ export default function HomePage() {
           justifyContent: "center",
         }}
       >
-        {/* Bara de sus (aliniată la lățimea pozei) */}
+        {/* Bara de sus (Facebook + Gmail) */}
         <div
           style={{
             position: "absolute",
             top: `-${topButtonsOffset}px`,
-            right: "5%", // ✅ nu mai e lipit de marginea ecranului
+            right: "5%",
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-end",
             gap: `${buttonsGap}px`,
-            width: `${cartoonWidth}px`, // se aliniază cu imaginea
+            width: `${cartoonWidth}px`,
             maxWidth: "90vw",
           }}
         >
@@ -93,20 +74,6 @@ export default function HomePage() {
               <path d="M12 12.713l11.985-8.713H0L12 12.713zm0 2.574l-12-8.713V21h24V6.574l-12 8.713z" />
             </svg>
           </a>
-
-          {/* EN/RO */}
-          <button
-            onClick={toggleLang}
-            style={{
-              padding: "4px 8px",
-              borderRadius: 6,
-              border: "1px solid #0070f3",
-              backgroundColor: "white",
-              cursor: "pointer",
-            }}
-          >
-            {lang === "ro" ? "EN" : "RO"}
-          </button>
         </div>
 
         {/* Imaginea */}
@@ -130,16 +97,16 @@ export default function HomePage() {
             marginTop: `${startButtonOffset}px`,
             padding: "12px 28px",
             fontSize: "1.1rem",
-            border: "3px solid #0070f3",
+            border: "3px solid #003366",
             borderRadius: 10,
             backgroundColor: "white",
-            color: "#0070f3",
+            color: "#003366",
             cursor: "pointer",
             maxWidth: "280px",
             width: "90%",
           }}
         >
-          {text[lang].start}
+          Hai să începem
         </button>
       </div>
     </main>
