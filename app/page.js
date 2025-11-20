@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <main
       style={{
-        height: "100dvh", // ✅ folosește dynamic viewport height (corect pe mobil)
+        height: "85dvh", // ✅ folosește dynamic viewport height (corect pe mobil)
         width: "100vw",
         display: "flex",
         flexDirection: "column",
