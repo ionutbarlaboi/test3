@@ -1,12 +1,13 @@
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
-/* Elimină marginile implicite și scroll-ul */
+/* Fundal alb pentru toată pagina, previne flash-ul Vercel */
 html, body {
   height: 100%;
   overflow-y: auto; /* sau scroll */
+  margin: 0;
+  background-color: white; /* ✅ fundal alb înainte de încărcarea conținutului */
+  font-family: sans-serif;
 }
+
+/* Elimină marginile implicite și scroll-ul */
 .latex-inline-wrapper {
   display: inline-block;
   white-space: nowrap;          /* Nu sparge formula pe mai multe linii */
@@ -28,7 +29,6 @@ html, body {
 .latex-inline-wrapper::-moz-focus-inner {
   border: 0;
 }
-
 
 .button-link {
   display: inline-block;
@@ -60,5 +60,3 @@ html, body {
     transform: scale(1);
   }
 }
-
-
