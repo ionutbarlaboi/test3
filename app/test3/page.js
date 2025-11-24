@@ -6,7 +6,9 @@ import { InlineMath } from "react-katex";
 
 function renderWithLatex(text) {
   if (!text) return null;
-  const parts = text.split(/(\$[^$]+\$)/g);
+
+  const parts = text.split(/(\$[^$]+\$)/g); // separăm formulele LaTeX
+
   return parts.map((part, index) => {
     if (part.startsWith("$") && part.endsWith("$")) {
       const formula = part.slice(1, -1);
@@ -16,9 +18,11 @@ function renderWithLatex(text) {
         </span>
       );
     }
+    // Text normal → rămâne inline
     return <span key={index}>{part}</span>;
   });
 }
+
 
 export default function Test3() {
   const [questions, setQuestions] = useState([]);
@@ -287,7 +291,7 @@ export default function Test3() {
               >
                 {`Exercițiul ${q.nr}`}
               </p>
-              <p style={{ fontSize: "18px", textAlign: "left" }}>{renderWithLatex(q.text)}</p>
+              <div style={{ fontSize: "18px", textAlign: "left", whiteSpace: "pre-wrap" }}>{renderWithLatex(q.text)}</div>
             </div>
 
             {q.image && (
