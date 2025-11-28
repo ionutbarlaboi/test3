@@ -167,7 +167,7 @@ cursor: "pointer",
         </button>
 
         <a
-          href="https://www.facebook.com/ionut.barlaboi"
+          href="https://www.facebook.com/profile.php?id=61584564381930"
           target="_blank"
           rel="noopener noreferrer"
           style={{
