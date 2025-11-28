@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Aplicație Matematică",
+  title: "Matemat'IBa",
   description: "Teste grilă pentru gimnaziu",
 };
 
@@ -21,6 +21,22 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#003366" />
       </head>
       <body>
+        {/* Splash alb rapid la încărcare */}
+        <div
+          id="preload"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "white",
+            zIndex: 9999,
+            transition: "opacity 0.3s ease",
+          }}
+        ></div>
+
+        {/* Header cu Google Translate */}
         <header
           style={{
             width: "100%",
@@ -46,6 +62,21 @@ export default function RootLayout({ children }) {
 
         {/* Conținutul principal */}
         {children}
+
+        {/* Script pentru estomparea preload */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('load', function() {
+                const preload = document.getElementById('preload');
+                if(preload) {
+                  preload.style.opacity = 0;
+                  setTimeout(() => preload.remove(), 350);
+                }
+              });
+            `,
+          }}
+        />
       </body>
     </html>
   );
