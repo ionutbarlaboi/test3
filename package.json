@@ -1,5 +1,5 @@
 {
-  "name": "app-matematica",
+  "name": "Matemat'IBa",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
