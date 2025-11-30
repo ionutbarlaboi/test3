@@ -2,7 +2,7 @@
 
 const FILES_TO_CACHE = [
   "/",
-  "/favicon-2.ico?v=5",
+  "/favicon.ico?v=5",
   "/favicon-16x16.png?v=5",
   "/favicon-32x32.png?v=5",
   "/apple-touch-icon.png?v=5",
