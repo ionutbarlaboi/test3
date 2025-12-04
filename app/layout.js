@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import GoogleTranslate from "./GoogleTranslate";
+import CookieConsent from "../components/CookieConsent"; // <-- modul cookies
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,36 +17,52 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ro" className={inter.variable}>
       <head>
-        {/* Manifest PWA */}
         <link rel="manifest" href="/manifest.json?v=5" />
-
-        {/* Favicon & Apple Touch Icon */}
         <link rel="icon" href="/favicon.ico?v=5" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5" />
-
-        {/* Theme color */}
         <meta name="theme-color" content="#003366" />
       </head>
 
-      <body>
-        {/* Splash alb rapid la încărcare */}
+      <body
+        style={{
+          background: "transparent",
+        }}
+      >
+        {/* FUNDAL GLOBAL MATEMATIBA */}
         <div
-          id="preload"
           style={{
             position: "fixed",
             top: 0,
             left: 0,
             width: "100vw",
             height: "100vh",
-            backgroundColor: "white",
-            zIndex: 9999,
-            transition: "opacity 0.3s ease",
+            zIndex: -1,
+            pointerEvents: "none",
           }}
-        ></div>
+        >
+          {Array.from({ length: 300 }).map((_, i) => (
+            <span
+              key={i}
+              style={{
+                position: "absolute",
+                top: 1 + Math.random() * 90 + "%",
+                left: 1 + Math.random() * 90 + "%",
+                transform: "rotate(" + (Math.random() * 30 - 15) + "deg)",
+                fontSize: "12px",
+                fontWeight: "100",
+                color: "rgba(0,0,0,0.05)",
+                userSelect: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Matemat'IBa
+            </span>
+          ))}
+        </div>
 
-        {/* Header cu Google Translate */}
+        {/* HEADER Google Translate */}
         <header
           style={{
             width: "100%",
@@ -69,10 +86,13 @@ export default function RootLayout({ children }) {
           </div>
         </header>
 
-        {/* Conținutul principal */}
+        {/* CONȚINUT PAGINĂ */}
         {children}
 
-        {/* Script pentru estomparea preload */}
+        {/* COOKIE CONSENT */}
+        <CookieConsent />
+
+        {/* PRELOAD */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -87,7 +107,7 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {/* Service Worker pentru PWA */}
+        {/* SERVICE WORKER */}
         <script
           dangerouslySetInnerHTML={{
             __html: `

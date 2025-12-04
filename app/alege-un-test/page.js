@@ -115,7 +115,7 @@ cursor: "pointer",
   >
     {/* Fundal dezordonat */}
     <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
-      {Array.from({ length: 250 }).map((_, i) => (
+      {Array.from({ length: 400 }).map((_, i) => (
         <span key={i} style={randomStyle()}>
           Matemat'IBa
         </span>
@@ -138,7 +138,7 @@ cursor: "pointer",
           fontWeight: "bold",
           marginBottom: "2rem",
           marginTop: 0,
-          color: "#000080",
+          color: "#003366",
           textDecoration: "underline",
         }}
       >
@@ -163,9 +163,9 @@ cursor: "pointer",
                 padding: "8px",
                 fontSize: "15px",
                 borderRadius: "6px",
-                border: "2px solid #0070f3",
+                border: "2px solid #003366",
                 background: "white",
-                color: "#0070f3",
+                color: "#003366",
                 cursor: "pointer",
                 fontWeight: "bold",
               }}
@@ -206,9 +206,9 @@ cursor: "pointer",
           onClick={() => router.push("/")}
           style={{
             fontSize: "14px",
-            border: "1px solid #0070f3",
+            border: "1px solid #003366",
             background: "white",
-            color: "#0070f3",
+            color: "#003366",
             padding: "5px 10px",
             borderRadius: "6px",
             cursor: "pointer",

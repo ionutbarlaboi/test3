@@ -43,3 +43,16 @@ self.addEventListener("fetch", (event) => {
       .catch(() => caches.match(event.request))
   );
 });
+
+// Aici, la sfârșitul fișierului tău sw.js
+
+self.addEventListener("push", (event) => {
+  const data = event.data ? event.data.json() : {};
+  const title = data.title || "Notificare nouă";
+  const options = {
+    body: data.body || "Ai un mesaj nou",
+    icon: "/android-chrome-192x192.png?v=5",
+    badge: "/android-chrome-192x192.png?v=5",
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
