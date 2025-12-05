@@ -11,8 +11,13 @@ webpush.setVapidDetails(
 );
 
 export async function POST(req) {
-  const { title, message } = await req.json();
-  const payload = JSON.stringify({ title, body: message });
+  const { title, message } = await req.json();  
+  const payload = JSON.stringify({
+    title,
+    body: message,
+    badge: "/icon-small.png" // pictograma mică
+  });
+
 
   let validSubs = [];
 
