@@ -374,8 +374,7 @@ export default function HomePage() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "white",
+          justifyContent: "center",         
           textAlign: "center",
           overflow: "hidden",
           position: "relative",
@@ -383,23 +382,6 @@ export default function HomePage() {
           animation: "fadeIn 1s forwards",
         }}
       >
-        {/* Fundal Matemat'IBa */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: 0,
-          }}
-        >
-          {Array.from({ length: 400 }).map((_, i) => (
-            <span key={i} style={randomStyle()}>
-              Matemat'IBa
-            </span>
-          ))}
-        </div>
 
         {/* Conținut */}
         <div

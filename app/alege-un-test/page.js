@@ -104,8 +104,7 @@ cursor: "pointer",
   <div
     style={{
       minHeight: "100vh",
-      overflowY: "auto",
-      backgroundColor: "white",
+      overflowY: "auto",      
       backgroundSize: "cover",
       paddingTop: 0,
       marginTop: 0,
@@ -113,14 +112,7 @@ cursor: "pointer",
       position: "relative",
     }}
   >
-    {/* Fundal dezordonat */}
-    <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
-      {Array.from({ length: 400 }).map((_, i) => (
-        <span key={i} style={randomStyle()}>
-          Matemat'IBa
-        </span>
-      ))}
-    </div>
+
 
     <div
       style={{

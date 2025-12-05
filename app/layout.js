@@ -40,26 +40,14 @@ export default function RootLayout({ children }) {
             height: "100vh",
             zIndex: -1,
             pointerEvents: "none",
+            backgroundImage: `
+             linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+             linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)
+            `,
+            backgroundSize: "22px 22px",
           }}
         >
-          {Array.from({ length: 300 }).map((_, i) => (
-            <span
-              key={i}
-              style={{
-                position: "absolute",
-                top: 1 + Math.random() * 90 + "%",
-                left: 1 + Math.random() * 90 + "%",
-                transform: "rotate(" + (Math.random() * 30 - 15) + "deg)",
-                fontSize: "12px",
-                fontWeight: "100",
-                color: "rgba(0,0,0,0.05)",
-                userSelect: "none",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Matemat'IBa
-            </span>
-          ))}
+
         </div>
 
         {/* HEADER Google Translate */}
