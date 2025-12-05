@@ -14,14 +14,20 @@ export async function POST(req) {
   const { title, message } = await req.json();
   const payload = JSON.stringify({ title, body: message });
 
-  try {
-    for (const sub of subscriptions) {
-      await webpush.sendNotification(sub, payload);
-    }
+  let validSubs = [];
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
-  } catch (err) {
-    console.error("Eroare la trimitere:", err);
-    return new Response(JSON.stringify({ error: "Nu s-a putut trimite notificarea." }), { status: 500 });
+  for (const sub of subscriptions) {
+    try {
+      await webpush.sendNotification(sub, payload);
+      validSubs.push(sub); // păstrăm doar subscription-urile valide
+    } catch (err) {
+      console.log("Subscription invalid eliminat:", err.message);
+    }
   }
+
+  // Rescriem lista cu doar cele valide
+  subscriptions.length = 0;
+  subscriptions.push(...validSubs);
+
+  return new Response(JSON.stringify({ success: true, sent: validSubs.length }), { status: 200 });
 }
