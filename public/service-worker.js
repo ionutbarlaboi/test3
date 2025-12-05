@@ -52,7 +52,7 @@ self.addEventListener("push", (event) => {
   const options = {
     body: data.body || "Ai un mesaj nou",
     icon: "/android-chrome-192x192.png?v=5",
-    badge: "/android-chrome-192x192.png?v=5",
+    badge: "/icon-small.png?v=5", 
   };
   event.waitUntil(self.registration.showNotification(title, options));
 });
