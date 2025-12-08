@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
@@ -15,113 +15,6 @@ export default function HomePage() {
 
   const [showEmailBox, setShowEmailBox] = useState(false);
   const [showDevModal, setShowDevModal] = useState(true);
-
-  const [showNotifModal, setShowNotifModal] = useState(false); // pop-up pentru „Hai să începem”
-  const [showNotifModalBottom, setShowNotifModalBottom] = useState(false); // pop-up pentru butonul mic de jos
-  const [notificationsEnabled, setNotificationsEnabled] = useState(false);
-
-  // La încărcare verificăm dacă notificările sunt activate
-  useEffect(() => {
-    const enabled = localStorage.getItem("notificationsEnabled");
-    if (enabled === "yes") setNotificationsEnabled(true);
-
-    // Înregistrare SW
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/service-worker.js")
-        .then(() => console.log("Service Worker registered"))
-        .catch(console.error);
-    }
-  }, []);
-
-  // Conversie VAPID
-  function urlBase64ToUint8Array(base64String) {
-    const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
-    const base64 = (base64String + padding)
-      .replace(/\-/g, "+")
-      .replace(/_/g, "/");
-
-    const rawData = window.atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-
-    for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
-  }
-
-  // Activare notificări
-  async function activateNotifications() {
-    try {
-      const permission = await Notification.requestPermission();
-      if (permission !== "granted") {
-        alert("Permisiunea pentru notificări nu a fost acordată.");
-        return;
-      }
-
-      const registration = await navigator.serviceWorker.ready;
-
-      const existingSubscription = await registration.pushManager.getSubscription();
-      if (existingSubscription) await existingSubscription.unsubscribe();
-
-      const subscription = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array(
-          "BIraI_5nULdp6DFPsjsXwaASrF-5yR20CLytfqgIJiaHbSVOsaMQFj6Lta5-P_gfydVuDB0LrdKgveQvo--yukw"
-        ),
-      });
-
-      await fetch("/api/save-subscription", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(subscription),
-      });
-
-      localStorage.setItem("notificationsEnabled", "yes");
-
-      setNotificationsEnabled(true);      
-    } catch (err) {
-      console.error("Eroare la abonare:", err);
-      alert("Nu s-a putut activa notificarea.");
-    }
-  }
-
-  // Pop-up „Hai să începem” – DA / NU
-  const handleAcceptNotifications = async () => {
-    await activateNotifications();
-    localStorage.setItem("seenNotifModal", "yes"); // marcam că a văzut modalul
-    setShowNotifModal(false);
-    router.push("/alege-un-test");
-  };
-
-  const handleDeclineNotifications = () => {
-    localStorage.setItem("seenNotifModal", "yes"); // marcam că a văzut modalul
-    setShowNotifModal(false);
-    router.push("/alege-un-test");
-  };
-
-  // Pop-up „Primește noutăți” (buton mic jos) – DA / NU
-  const handleAcceptNotificationsBottom = async () => {
-    await activateNotifications();
-    setShowNotifModalBottom(false); // rămâne pe prima pagină
-  };
-
-  const handleDeclineNotificationsBottom = () => {
-    setShowNotifModalBottom(false); // rămâne pe prima pagină
-  };
-
-  const randomStyle = () => ({
-    position: "absolute",
-    top: 5 + Math.random() * 90 + "%",
-    left: 5 + Math.random() * 90 + "%",
-    transform: "rotate(" + (Math.random() * 30 - 15) + "deg)",
-    fontSize: 10 + Math.random() * 6 + "px",
-    fontWeight: "100",
-    color: "rgba(0,0,0,0.05)",
-    pointerEvents: "none",
-    userSelect: "none",
-    whiteSpace: "nowrap",
-  });
 
   return (
     <>
@@ -236,136 +129,6 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Pop-up „Hai să începem” */}
-      {showNotifModal && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "rgba(0,0,0,0.6)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 2000,
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: "white",
-              padding: "20px",
-              borderRadius: "12px",
-              width: "90%",
-              maxWidth: "360px",
-              textAlign: "center",
-            }}
-          >
-            <h2
-              style={{
-                fontSize: "1.3rem",
-                fontWeight: "bold",
-                marginBottom: "15px",
-              }}
-            >
-              Vrei să fii la curent cu toate noutățile din aplicație?
-            </h2>
-
-            <button
-              style={{
-                width: "100%",
-                padding: "12px",
-                borderRadius: 10,
-                backgroundColor: "#003366",
-                color: "white",
-                border: "none",
-                marginBottom: 10,
-              }}
-              onClick={handleAcceptNotifications}
-            >
-              Da
-            </button>
-
-            <button
-              style={{
-                width: "100%",
-                padding: "12px",
-                borderRadius: 10,
-                border: "2px solid #003366",
-                backgroundColor: "white",
-                color: "#003366",
-              }}
-              onClick={handleDeclineNotifications}
-            >
-              Nu
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Pop-up „Vrei să activezi notificările?” – buton jos */}
-      {showNotifModalBottom && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "rgba(0,0,0,0.6)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 2000,
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: "white",
-              padding: "20px",
-              borderRadius: "12px",
-              width: "90%",
-              maxWidth: "360px",
-              textAlign: "center",
-            }}
-          >
-            <h2
-              style={{
-                fontSize: "1.3rem",
-                fontWeight: "bold",
-                marginBottom: "15px",
-              }}
-            >
-              Vrei să activezi notificările?
-            </h2>
-
-            <button
-              style={{
-                width: "100%",
-                padding: "12px",
-                borderRadius: 10,
-                backgroundColor: "#003366",
-                color: "white",
-                border: "none",
-                marginBottom: 10,
-              }}
-              onClick={handleAcceptNotificationsBottom}
-            >
-              Da
-            </button>
-
-            <button
-              style={{
-                width: "100%",
-                padding: "12px",
-                borderRadius: 10,
-                border: "2px solid #003366",
-                backgroundColor: "white",
-                color: "#003366",
-              }}
-              onClick={handleDeclineNotificationsBottom}
-            >
-              Nu
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Pagina principală */}
       <main
         style={{
@@ -374,7 +137,7 @@ export default function HomePage() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",         
+          justifyContent: "center",
           textAlign: "center",
           overflow: "hidden",
           position: "relative",
@@ -382,8 +145,6 @@ export default function HomePage() {
           animation: "fadeIn 1s forwards",
         }}
       >
-
-        {/* Conținut */}
         <div
           style={{
             position: "relative",
@@ -462,7 +223,7 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* Imaginea */}
+          {/* Imagine */}
           <Image
             src="/math-cartoon.jpg"
             alt="Caricatură matematică"
@@ -472,16 +233,9 @@ export default function HomePage() {
             priority
           />
 
-          {/* HAI SĂ ÎNCEPEM */}
+          {/* Hai să începem */}
           <button
-            onClick={() => {
-              const seen = localStorage.getItem("seenNotifModal");
-              if (notificationsEnabled || seen === "yes") {
-                router.push("/alege-un-test"); // deja a văzut sau notificările sunt active
-              } else {
-                setShowNotifModal(true); // deschide pop-up
-              }
-            }}
+            onClick={() => router.push("/alege-un-test")}
             style={{
               marginTop: `${startButtonOffset}px`,
               padding: "12px 28px",
@@ -497,33 +251,13 @@ export default function HomePage() {
           >
             Hai să începem
           </button>
-
-          {/* BUTON TEXT – Activează notificările (jos) */}
-          {!notificationsEnabled && (
-            <div
-              onClick={() => setShowNotifModalBottom(true)}
-              style={{
-                marginTop: "15px",
-                fontSize: "0.9rem",
-                color: "#003366",
-                textDecoration: "underline",
-                cursor: "pointer",
-              }}
-            >
-              Activează notificările
-            </div>
-          )}
         </div>
       </main>
 
       <style jsx>{`
         @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
       `}</style>
     </>
