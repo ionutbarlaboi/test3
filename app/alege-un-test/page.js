@@ -103,7 +103,7 @@ cursor: "pointer",
 
   <div
     style={{
-      minHeight: "100vh",
+      minHeight: "auto",
       overflowY: "auto",      
       backgroundSize: "cover",
       paddingTop: 0,
