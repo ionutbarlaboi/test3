@@ -299,7 +299,7 @@ function renderLatex(text) {
 
           <button
             onClick={() => handleDelete("I", index)}
-            style={{ color: "red", marginTop: "0.5rem" }}
+            style={{ color: "red", marginTop: "0.5rem",display: "block", marginLeft: "auto" }}
           >
             Șterge întrebarea
           </button>
@@ -458,7 +458,7 @@ function renderLatex(text) {
 
           <button
             onClick={() => handleDelete("II", index)}
-            style={{ color: "red", marginTop: "0.5rem" }}
+            style={{ color: "red", marginTop: "0.5rem", display: "block", marginLeft: "auto" }}
           >
             Șterge întrebarea
           </button>
