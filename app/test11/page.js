@@ -24,7 +24,7 @@ function renderWithLatex(text) {
 }
 
 
-export default function Test10() {
+export default function Test11() {
   const [questions, setQuestions] = useState([]);
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -33,7 +33,7 @@ export default function Test10() {
   const [finished, setFinished] = useState(false);
 
   useEffect(() => {
-    fetch("/testul10.json")
+    fetch("/testul11.json")
       .then((res) => res.json())
       .then((data) => {
         const combinedQuestions = [
@@ -110,7 +110,7 @@ export default function Test10() {
           display: "inline-block",
         }}
       >
-        Testul 10
+        Testul 11
       </h2>
 
       {finished ? (
