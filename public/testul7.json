@@ -37,7 +37,7 @@
         "15"
       ],
       "correct": 2,
-      "explanation": "În intervalul (-6,2] se găsesc numerele întregi negative: {-5,-4,-3-,2-,1}\nS=-5-4-3-2-1=-15\n\n*paranteza rotundă = interval deschis (nu atinge capătul)\n*paranteza dreaptă = interval închis (atinge capătul)\n",
+      "explanation": "În intervalul (-6,2] se găsesc numerele întregi negative: {-5,-4,-3,-2,-1}\nS=-5-4-3-2-1=-15\n\n*paranteza rotundă = interval deschis (nu atinge capătul)\n*paranteza dreaptă = interval închis (atinge capătul)\n",
       "image": null,
       "explanationImage": null,
       "subiect": "I"
