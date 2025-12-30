@@ -106,8 +106,8 @@ cursor: "pointer",
       minHeight: "auto",
       overflowY: "auto",      
       backgroundSize: "cover",
-      paddingTop: 0,
-      marginTop: 0,
+      paddingTop: "0rem",
+      marginTop: "0rem",
       boxSizing: "border-box",
       position: "relative",
     }}
@@ -117,7 +117,7 @@ cursor: "pointer",
     <div
       style={{
         position: "relative",
-        padding: "1rem",
+        padding: "0rem",
         maxWidth: "600px",
         margin: "0 auto",
         textAlign: "center",
@@ -128,8 +128,8 @@ cursor: "pointer",
         style={{
           fontSize: "24px",
           fontWeight: "bold",
-          marginBottom: "2rem",
-          marginTop: 0,
+          marginBottom: "1rem",
+          marginTop: "0rem",
           color: "#003366",
           textDecoration: "underline",
         }}
@@ -173,9 +173,9 @@ cursor: "pointer",
       </div>
 
       {process.env.NODE_ENV === "development" && (
-        <div style={{ marginTop: "2rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+        <div style={{ marginTop: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           <button
-            onClick={() => router.push("/creare")}
+            onClick={() => router.push("/creare-teste-recap")}
             style={{
               fontSize: "14px",
               marginBottom: "0.5rem",
@@ -188,12 +188,12 @@ cursor: "pointer",
               marginRight: "auto",
             }}
           >
-            Creare / modificare teste
+            Creare teste recap
           </button>
         </div>
       )}
 
-      <div style={{ marginTop: "2rem" }}>
+      <div style={{ marginTop: "0.5rem" }}>
         <button
           onClick={() => router.push("/")}
           style={{

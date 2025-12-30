@@ -1,0 +1,41 @@
+[
+  {
+    "text": "Cine sunt eu",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 0,
+    "explanation": "eu",
+    "image": null,
+    "explanationImage": null
+  },
+  {
+    "text": "ia sa vedem si a doua",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 1,
+    "explanation": "asta e a doua",
+    "image": null,
+    "explanationImage": null
+  },
+  {
+    "text": "Si chiar a treia",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 2,
+    "explanation": "",
+    "image": null,
+    "explanationImage": null
+  }
+]

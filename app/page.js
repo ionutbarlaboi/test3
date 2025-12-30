@@ -9,7 +9,6 @@ export default function HomePage() {
 
   const cartoonWidth = 400;
   const cartoonHeight = 200;
-  const startButtonOffset = 80;
   const topButtonsOffset = 60;
   const buttonsGap = 20;
 
@@ -233,24 +232,69 @@ export default function HomePage() {
             priority
           />
 
-          {/* Hai să începem */}
-          <button
-            onClick={() => router.push("/alege-un-test")}
+          {/* Butoane noi */}
+          <div
             style={{
-              marginTop: `${startButtonOffset}px`,
-              padding: "12px 28px",
-              fontSize: "1.1rem",
-              border: "3px solid #003366",
-              borderRadius: 10,
-              backgroundColor: "white",
-              color: "#003366",
-              cursor: "pointer",
-              maxWidth: "280px",
-              width: "90%",
+              marginTop: "40px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "12px",
             }}
           >
-            Hai să începem
-          </button>
+            {/* Rândul 1: Teorie Algebra + Teorie Geometrie */}
+            <div style={{ display: "flex", gap: "16px" }}>
+              <button
+                onClick={() => router.push("/teorie/algebra")}
+                style={{
+                  padding: "10px 20px",
+                  fontSize: "0.95rem",
+                  border: "2px solid #003366",
+                  borderRadius: 8,
+                  backgroundColor: "white",
+                  color: "#003366",
+                  cursor: "pointer",
+                  width: "120px",
+                }}
+              >
+                Algebra
+              </button>
+
+              <button
+                onClick={() => router.push("/teorie/geometrie")}
+                style={{
+                  padding: "10px 20px",
+                  fontSize: "0.95rem",
+                  border: "2px solid #003366",
+                  borderRadius: 8,
+                  backgroundColor: "white",
+                  color: "#003366",
+                  cursor: "pointer",
+                  width: "120px",
+                }}
+              >
+                Geometrie
+              </button>
+            </div>
+
+            {/* Rândul 2: Teste*/}
+            <button
+              onClick={() => router.push("/alege-un-test")}
+              style={{
+                padding: "10px 20px",
+                fontSize: "0.95rem",
+                border: "2px solid #003366",
+                borderRadius: 8,
+                backgroundColor: "white",
+                color: "#003366",
+                cursor: "pointer",
+                width: "100%",
+                maxWidth: "150px",
+              }}
+            >
+              Teste finale
+            </button>
+          </div>
         </div>
       </main>
 

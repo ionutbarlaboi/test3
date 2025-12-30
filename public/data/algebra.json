@@ -1,0 +1,39 @@
+{
+  "capitole": [
+    {
+      "id": 1,
+      "titlu": "Mulțimi",
+      "subtitlu": ["Mulțimi de numere", "Operații cu mulțimi"],
+      "link": "/teorie/algebra/1.mulțimi",
+      "teste": ["/1.mulțimi.testul1", "/1.mulțimi.testul2"]
+    },
+    {
+      "id": 2,
+      "titlu": "Subgrupuri",
+      "subtitlu":[],
+      "link": "/teorie/2.subgrupuri",
+      "teste": ["/2.subgrupuri.testul1"]
+    },
+    {
+      "id": 3,
+      "titlu": "Morfisme",
+      "subtitlu":[],
+      "link": "/teorie/3.morfisme",
+      "teste": ["/3.morfisme.testul1"]
+    },
+    {
+      "id": 4,
+      "titlu": "Ineluri",
+      "subtitlu":[],
+      "link": "/teorie/4.ineluri",
+      "teste": []
+    },
+    {
+      "id": 5,
+      "titlu": "Corpi",
+      "subtitlu":[],
+      "link": "/teorie/5.corpi",
+      "teste": []
+    }
+  ]
+}
