@@ -7,7 +7,7 @@ import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
 export default function CapitolPage() {
-  const { capitol } = useParams(); // ex: "1.grupuri"
+  const { capitol } = useParams();
   const [capitolName, setCapitolName] = useState("");
   const [sections, setSections] = useState([]);
 
@@ -20,21 +20,12 @@ export default function CapitolPage() {
         return res.json();
       })
       .then((json) => {
-        // prelucrăm titlul
-        let titlu = "";
-        if (json.titlu) titlu = json.titlu;
-        else if (json.capitol) titlu = json.capitol;
-
-        // eliminăm numărul și punctul de la început
+        let titlu = json.titlu || json.capitol || "";
         titlu = titlu.replace(/^\d+\./, "");
-        // prima literă mare
         titlu = titlu.charAt(0).toUpperCase() + titlu.slice(1);
 
         setCapitolName(titlu);
-
-        // setăm secțiunile corect
-        if (json.continut) setSections(json.continut);
-        else setSections([]);
+        setSections(json.continut || []);
       })
       .catch((err) => {
         console.error(err);
@@ -46,28 +37,40 @@ export default function CapitolPage() {
   function renderLatex(text) {
     const parts = text.split(/(\$\$[^$]+\$\$|\$[^$]+\$)/g);
     return parts.map((part, idx) => {
-      if (part.startsWith("$$") && part.endsWith("$$"))
-        return <BlockMath key={idx}>{part.slice(2, -2)}</BlockMath>;
-      if (part.startsWith("$") && part.endsWith("$"))
-        return <InlineMath key={idx}>{part.slice(1, -1)}</InlineMath>;
-      return part.split("\n").map((line, i) => (
-        <span key={`${idx}-${i}`}>
-          {line}
-          <br />
-        </span>
-      ));
+      if (part.startsWith("$$") && part.endsWith("$$")) {
+        return (
+          <BlockMath key={idx} style={{ margin: "0.5rem 0" }}>
+            {part.slice(2, -2).trim()}
+          </BlockMath>
+        );
+      } else if (part.startsWith("$") && part.endsWith("$")) {
+        return (
+          <InlineMath key={idx} style={{ lineHeight: "1.4" }}>
+            {part.slice(1, -1).trim()}
+          </InlineMath>
+        );
+      } else {
+        // Păstrează spațiile și rândurile exact cum sunt, fără să le spargă
+        return part.split("\n").map((line, i) => (
+          <span key={`${idx}-${i}`}>
+            {line}
+            {i < part.split("\n").length - 1 && <br />}
+          </span>
+        ));
+      }
     });
   }
 
   return (
     <div style={{ padding: "0 2rem 2rem", maxWidth: "600px", margin: "0 auto" }}>
-      {/* Chenar pentru întreaga teorie */}
-      <div style={{
-        border: "1px solid #0070f3",
-        borderRadius: "10px",
-        padding: "1.5rem",
-        background: "#f9f9f9"
-      }}>
+      <div
+        style={{
+          border: "1px solid #0070f3",
+          borderRadius: "10px",
+          padding: "1.5rem",
+          background: "#f9f9f9",
+        }}
+      >
         <h1
           style={{
             textAlign: "center",
@@ -82,25 +85,28 @@ export default function CapitolPage() {
 
         {sections.map((s, i) => (
           <div key={i} style={{ marginBottom: "1.5rem" }}>
-            <div>{renderLatex(s.text)}</div>
+            <div style={{ whiteSpace: "pre-wrap", lineHeight: "1.4" }}>
+              {renderLatex(s.text)}
+            </div>
 
             {s.image && (
-              <img
-                src={s.image}
-                alt=""
-                style={{
-                  display: "block",
-                  margin: "1rem auto",
-                  maxWidth: "100%",
-                  width: "250px",
-                }}
-              />
+              <div style={{ textAlign: "center", marginTop: "0.5rem" }}>
+                <img
+                  src={s.image}
+                  alt=""
+                  style={{
+                    maxWidth: "100%",
+                    width: "250px",
+                    display: "block",
+                    margin: "0.5rem auto",
+                  }}
+                />
+              </div>
             )}
           </div>
         ))}
       </div>
 
-      {/* Buton Înapoi la cuprins algebra, în afara chenarului */}
       <div style={{ textAlign: "center", marginTop: "2rem" }}>
         <Link
           href="/teorie/algebra"
