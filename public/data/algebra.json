@@ -2,37 +2,58 @@
   "capitole": [
     {
       "id": 1,
-      "titlu": "Mulțimi",
+      "titlu": "Mulțimi. Noțiuni generale",
       "subtitlu": ["Mulțimi de numere", "Operații cu mulțimi"],
       "link": "/teorie/algebra/1.mulțimi",
-      "teste": ["/1.mulțimi.testul1", "/1.mulțimi.testul2"]
+      "teste": ["/1.mulțimi.testul1", "/1.mulțimi.testul2", "/1.mulțimi.testul3"]
     },
     {
       "id": 2,
-      "titlu": "Subgrupuri",
-      "subtitlu":[],
-      "link": "/teorie/2.subgrupuri",
-      "teste": ["/2.subgrupuri.testul1"]
+      "titlu": "Mulțimea numerelor întregi",
+      "subtitlu":["Adunarea și scăderea", "Înmulțire și împărțirea", "Formule de calcul cu puteri", "Ordinea efectuării operațiilor", "Suma lui Gauss"],
+      "link": "/teorie/algebra/2.mulțimea-numerelor-întregi",
+      "teste": ["/2.mulțimea-numerelor-întregi.testul1"]
     },
     {
       "id": 3,
-      "titlu": "Morfisme",
-      "subtitlu":[],
-      "link": "/teorie/3.morfisme",
-      "teste": ["/3.morfisme.testul1"]
+      "titlu": "Divizibilitatea numerelor întregi",
+      "subtitlu":["Divizor și multiplu", "Criterii de divizibilitate", "Descompunerea numerelor în produs de puteri de numere prime", "Cel mai mare divizor comun. Cel mai mic multiplu comun"],
+      "link": "/teorie/algebra/3.divizibilitatea-numerelor-întregi",
+      "teste": ["/3.divizibilitatea-numerelor-întregi.testul1"]
     },
     {
       "id": 4,
-      "titlu": "Ineluri",
-      "subtitlu":[],
-      "link": "/teorie/4.ineluri",
+      "titlu": "Mulțimea numerelor raționale",
+      "subtitlu":["Fracții ordinare. Amplificare. Simplificare", "Fracțiile zecimale și transformările lor în fracții ordinare", "Operații cu fracții", "Proporţii derivate","Mărimi direct proporţionale; regula de trei simplă", "Mărimi invers proporţionale; regula de trei simplă", "Probabilitate"],
+      "link": "/teorie/algebra/4.mulțimea-numerelor-raționale",
       "teste": []
     },
     {
       "id": 5,
-      "titlu": "Corpi",
-      "subtitlu":[],
-      "link": "/teorie/5.corpi",
+      "titlu": "Mulţimea numerelor reale",
+      "subtitlu":["Rădăcina pătrată a unui număr", "Scoaterea factorilor de sub radical", "Introducerea factorilor sub radical", "Operaţii cu numere reale", "Intervale", "Calculul mediilor"],
+      "link": "/teorie/algebra/5.mulţimea-numerelor-reale",
+      "teste": []
+    },
+    {
+      "id": 6,
+      "titlu": "Calcul algebric",
+      "subtitlu":["Calcule cu numere reale reprezentate prin litere", "Formule de calcul prescurtat", "Descompuneri în factori"],
+      "link": "/teorie/6.calcul-algebric",
+      "teste": []
+    },
+    {
+      "id": 7,
+      "titlu": "Ecuaţii, inecuaţii şi sisteme de ecuații",
+      "subtitlu":["Ecuaţii de gradul 1", "Inecuaţii de gradul 1", "Sisteme de ecuații de grad 1", "Ecuaţii de gradul 2"],
+      "link": "/teorie/algebra/7.ecuaţii-inecuaţii-sisteme de ecuații",
+      "teste": []
+    },
+    {
+      "id": 8,
+      "titlu": "Funcţii",
+      "subtitlu":["Noţiunea de funcţie", "Imaginea unei funcții", "Apartenența unui punct graficului unei funcții", "Reprezentarea punctelor în plan", "Distanţa dintre două puncte", "Funcția de gradul 1"],
+      "link": "/teorie/algebra/8.funcţii",
       "teste": []
     }
   ]

@@ -1,0 +1,29 @@
+{
+  "capitol": "Mulțimea numerelor întregi",
+  "continut": [
+    {
+      "text": "$\\textbf{2.1 Adunarea și scăderea}$\n\nPentru a aduna două numere cu același semn se pune semnul comun și se face adunarea celor două numere. Semnul unui număr este cel din fața lui (dacă nu există semn înseamnă că este +)\n3+4=7   $\\rightarrow$ matematic +3+4 = +7\n-2-5=-7 $\\rightarrow$ matematic -2-5 = - (2+5) = -7\n\nPentru a aduna două numere de semne opuse se pune semnul celui mai mare și se face scăderea celor două numere.\n5-3=2    $\\rightarrow$ matematic +5-2 = +(5-2) = +3\n-7+3=-4 $\\rightarrow$ matematic -7+3 = -(7-3) = -4\n",
+      "image": null
+    },
+    {
+      "text": "$\\textbf{2.2 Înmulțire și împărțirea}$\n\nPentru a înmulți sau a împărți două numere trebuie să ținem cont de regula semnelor:\n(+)  cu  (+) = (+)\n(-)   cu  (-)  = (+)\n\n(+)  cu (-)  = (-)\n(-)   cu (+) = (-)\n\n",
+      "image": null
+    },
+    {
+      "text": "$\\textbf{2.3 Formule de calcul cu puteri}$\n\n$a^m \\cdot a^n = a^{m+n}$\n$a^m : a^n = a^{m-n}$\n$\\left(a^m\\right)^n = a^{m \\cdot n}$\n$a^m \\cdot b^m = \\left(a \\cdot b\\right)^m$\n$a^m : b^m = \\left(a : b\\right)^m$\n\n$\\textbf{De reținut:}$\n$0^n = 0,\\quad 1^n = 1,\\quad n^0 = 1$\n$(-x)^{\\text{puterea pară}} = x^{\\text{puterea pară}}$\n$(-x)^{\\text{puterea impară}} = -\\,x^{\\text{puterea impară}}$",
+      "image": null
+    },
+    {
+      "text": "$\\textbf{2.4 Ordinea efectuării operațiilor}$\n\nÎn lipsa $\\underline{\\text{parantezelor}}$ se fac mai întâi înmulțirile și împărțirile, apoi adunările și scăderile.\n\nDacă $\\underline{\\text{există paranteze}}$ se fac mai întâi calculele din paranteză (înmulțirile și împărțirile primele, apoi adunările și scăderile). \n\nLa rezolvarea exercițiilor folosind metoda mersului invers operațiile se schimbă în felul următor: \n-\tadunarea devine scădere și scăderea devine adunare.\n-\tînmulțirea devine împărțire și împărțire devine înmulțirea.\n",
+      "image": null
+    },
+    {
+      "text": "$\\textbf{2.5 Suma lui Gauss}$\n\n$1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$\n\nExemplu:\n$1 + 2 + 3 + \\cdots + 100=$\n\n$= \\frac{100(100+1)}{2}$\n\n$= \\frac{100 \\cdot 101}{2}$\n\n$= 50 \\cdot 101$\n\n$= 5050$",
+      "image": null
+    },
+    {
+      "text": "$\\textbf{De reținut:}$\n   - opusul unui număr oarecare $\\textbf{x}$ este  $\\textbf{-x}$.\n   - forma generală a unui număr par este $\\textbf{2k}$. \n   - numerle consecutive pare au forma $\\textbf{2k, 2k+2, 2k+4}$.\n   - forma generală a unui număr par este $\\textbf{2k+1}$.\n   - numerle consecutive impare au forma $\\textbf{2k+1, 2k+3, 2k+5}$.\n   - descompunerea unor numere de mai multe cifre:\n        $\\overline{ab} = 10a + b$\n        $\\overline{abc} = 100a + 10b + c$\n        $\\overline{abcd} = 1000a + 100b + 10c + d$\n   - Teorema împărțirii cu rest:\n\t$D= Î \\cdot C + R$, cu condiția $R < Î$\n\n",
+      "image": null
+    }
+  ]
+}
