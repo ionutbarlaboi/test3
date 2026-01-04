@@ -11,14 +11,14 @@
       "id": 2,
       "titlu": "Elemente de geometrie plană",
       "subtitlu":["Punct, dreaptă, semidreaptă, segment ", "Unghiul, triunghiul, patrulaterul, cercul", "Simetria, axa de simetrie", "Ordinea efectuării operațiilor", "Suma lui Gauss"],
-      "link": "/teorie/algebra/2.elemente-geometrie-plană",
+      "link": "/teorie/geometrie/2.elemente-geometrie-plană",
       "teste": ["/2.elemente-geometrie-plană.testul1"]
     },
     {
       "id": 3,
       "titlu": "Elemente de geometrie spațială",
       "subtitlu":["Divizor și multiplu", "Criterii de divizibilitate", "Descompunerea numerelor în produs de puteri de numere prime", "Cel mai mare divizor comun. Cel mai mic multiplu comun"],
-      "link": "/teorie/algebra/3.elemente-geometrie-spațială",
+      "link": "/teorie/geometrie/3.elemente-geometrie-spațială",
       "teste": ["/3.elemente-geometrie-spațială.testul1"]
     },
     {
