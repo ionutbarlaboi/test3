@@ -1,0 +1,60 @@
+{
+  "capitole": [
+    {
+      "id": 1,
+      "titlu": "Unităţi de măsură",
+      "subtitlu": ["Scara unităţilor de măsură", "Unităţi de măsură pentru lungime, arie, volum", "Unităţi de măsură pentru capacitate, masă, timp"],
+      "link": "/teorie/geometrie/1.unităţi-de-măsură",
+      "teste": ["/1.unităţi-de-măsură.testul1", "/1.unităţi-de-măsură.testul2", "/1.unităţi-de-măsură.testul3"]
+    },
+    {
+      "id": 2,
+      "titlu": "Elemente de geometrie plană",
+      "subtitlu":["Punct, dreaptă, semidreaptă, segment ", "Unghiul, triunghiul, patrulaterul, cercul", "Simetria, axa de simetrie", "Ordinea efectuării operațiilor", "Suma lui Gauss"],
+      "link": "/teorie/algebra/2.elemente-geometrie-plană",
+      "teste": ["/2.elemente-geometrie-plană.testul1"]
+    },
+    {
+      "id": 3,
+      "titlu": "Elemente de geometrie spațială",
+      "subtitlu":["Divizor și multiplu", "Criterii de divizibilitate", "Descompunerea numerelor în produs de puteri de numere prime", "Cel mai mare divizor comun. Cel mai mic multiplu comun"],
+      "link": "/teorie/algebra/3.elemente-geometrie-spațială",
+      "teste": ["/3.elemente-geometrie-spațială.testul1"]
+    },
+    {
+      "id": 4,
+      "titlu": "Mulțimea numerelor raționale",
+      "subtitlu":["Fracții ordinare. Amplificare. Simplificare", "Fracțiile zecimale și transformările lor în fracții ordinare", "Operații cu fracții ordinare și zecimale", "Proporţii derivate","Mărimi direct proporţionale; regula de trei simplă", "Mărimi invers proporţionale; regula de trei simplă", "Probabilitate"],
+      "link": "/teorie/algebra/4.mulțimea-numerelor-raționale",
+      "teste": []
+    },
+    {
+      "id": 5,
+      "titlu": "Mulţimea numerelor reale",
+      "subtitlu":["Rădăcina pătrată a unui număr", "Scoaterea factorilor de sub radical", "Introducerea factorilor sub radical", "Operaţii cu numere reale", "Intervale", "Calculul mediilor"],
+      "link": "/teorie/algebra/5.mulţimea-numerelor-reale",
+      "teste": []
+    },
+    {
+      "id": 6,
+      "titlu": "Calcul algebric",
+      "subtitlu":["Calcule cu numere reale reprezentate prin litere", "Formule de calcul prescurtat", "Descompuneri în factori"],
+      "link": "/teorie/6.calcul-algebric",
+      "teste": []
+    },
+    {
+      "id": 7,
+      "titlu": "Ecuaţii, inecuaţii şi sisteme de ecuații",
+      "subtitlu":["Ecuaţii de gradul 1", "Inecuaţii de gradul 1", "Sisteme de ecuații de grad 1", "Ecuaţii de gradul 2"],
+      "link": "/teorie/algebra/7.ecuaţii-inecuaţii-sisteme de ecuații",
+      "teste": []
+    },
+    {
+      "id": 8,
+      "titlu": "Funcţii",
+      "subtitlu":["Noţiunea de funcţie", "Imaginea unei funcții", "Apartenența unui punct graficului unei funcții", "Reprezentarea punctelor în plan", "Distanţa dintre două puncte", "Funcția de gradul 1"],
+      "link": "/teorie/algebra/8.funcţii",
+      "teste": []
+    }
+  ]
+}

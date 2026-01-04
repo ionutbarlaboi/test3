@@ -50,7 +50,7 @@ export default function HomePage() {
               Vrei să ne spui ceva?
             </p>
             <p style={{ fontWeight: "bold", marginBottom: "20px" }}>
-              Scrie-ne la: xxxx@gmail.ro
+              Scrie-ne la: contact.matematiba@gmail.com
             </p>
             <button
               onClick={() => setShowEmailBox(false)}
