@@ -22,7 +22,7 @@
       "image": null
     },
     {
-      "text": "$\\textbf{De reținut:}$\n   - opusul unui număr oarecare $\\textbf{x}$ este  $\\textbf{-x}$.\n   - forma generală a unui număr par este $\\textbf{2k}$. \n   - numerle consecutive pare au forma $\\textbf{2k, 2k+2, 2k+4}$.\n   - forma generală a unui număr par este $\\textbf{2k+1}$.\n   - numerle consecutive impare au forma $\\textbf{2k+1, 2k+3, 2k+5}$.\n   - descompunerea unor numere de mai multe cifre:\n        $\\overline{ab} = 10a + b$\n        $\\overline{abc} = 100a + 10b + c$\n        $\\overline{abcd} = 1000a + 100b + 10c + d$\n   - Teorema împărțirii cu rest:\n\t$D= Î \\cdot C + R$, cu condiția $R < Î$\n\n",
+      "text": "$\\textbf{De reținut:}$\n   - opusul unui număr oarecare $\\textbf{x}$ este  $\\textbf{-x}$\n   - forma generală a unui număr par este $\\textbf{2k}$\n   - numerle consecutive pare au forma $\\textbf{2k, 2k+2, 2k+4}$\n   - forma generală a unui număr par este $\\textbf{2k+1}$\n   - numerle consecutive impare au forma $\\textbf{2k+1, 2k+3, 2k+5}$\n   - descompunerea unor numere de mai multe cifre:\n        $\\overline{ab} = 10\\cdot a + b$\n        $\\overline{abc} = 100\\cdot a + 10\\cdot b + c$\n        $\\overline{abcd} = 1000\\cdot a + 100\\cdot b + 10\\cdot c + d$\n   - Teorema împărțirii cu rest:\n\t$D= Î \\cdot C + R$, cu $R<Î$\n\n",
       "image": null
     }
   ]
