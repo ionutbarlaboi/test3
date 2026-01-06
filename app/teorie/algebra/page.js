@@ -22,7 +22,9 @@ export default function AlgebraPage() {
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase();
 
-  const filteredCapitole = capitole.filter((c) => {
+  const filteredCapitole = capitole
+   .map((c, originalIndex) => ({ ...c, originalIndex }))
+   .filter((c) => {
     const term = normalize(search);
     if (normalize(c.titlu).includes(term)) return true;
 
@@ -43,8 +45,8 @@ export default function AlgebraPage() {
 
   return (
     <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0rem" }}>
-      {/* Titlu + search */}
-      <div style={{ position: "relative", marginBottom: "1rem" }}>
+      {/* Titlu */}
+      <div style={{ marginBottom: "0.3rem" }}>
         <h2
           style={{
             fontSize: "28px",
@@ -57,11 +59,20 @@ export default function AlgebraPage() {
         >
           Algebra
         </h2>
+      </div>
 
-        <div style={{ position: "absolute", right: 0, top: "50%", transform: "translateY(-50%)" }}>
+      {/* Search sub titlu, dreapta */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginBottom: "1rem",
+        }}
+      >
+        <div style={{ position: "relative" }}>
           <input
             type="text"
-            placeholder="Caută..."
+            placeholder="Caută capitol/subcapitol..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={{
@@ -74,6 +85,7 @@ export default function AlgebraPage() {
               minWidth: "150px",
             }}
           />
+
           {search && (
             <span
               onClick={() => setSearch("")}
@@ -94,11 +106,8 @@ export default function AlgebraPage() {
                 justifyContent: "center",
                 borderRadius: "50%",
                 backgroundColor: "#eee",
-                transition: "all 0.2s",
                 userSelect: "none",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ddd")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#eee")}
             >
               ×
             </span>
@@ -112,7 +121,10 @@ export default function AlgebraPage() {
 
         const subtitluriKeys = Object.keys(c)
           .filter((k) => k.startsWith("subtitlu-"))
-          .sort((a, b) => parseInt(a.split("-")[1]) - parseInt(b.split("-")[1]));
+          .sort(
+            (a, b) =>
+              parseInt(a.split("-")[1]) - parseInt(b.split("-")[1])
+          );
 
         return (
           <div
@@ -131,11 +143,17 @@ export default function AlgebraPage() {
           >
             <div style={{ flex: 1, textAlign: "left" }}>
               {/* Titlu capitol */}
-              <div style={{ fontWeight: "bold", fontSize: "18px", marginBottom: "0.3rem" }}>
-                {index + 1}. {c.titlu}
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                  marginBottom: "0.3rem",
+                }}
+              >
+                {c.originalIndex + 1}. {c.titlu}
               </div>
 
-              {/* Subcapitole și sub-subcapitole */}
+              {/* Subcapitole */}
               {subtitluriKeys.map((key) => {
                 const num = parseInt(key.split("-")[1]);
                 const subArray = c[key] || [];
@@ -147,15 +165,20 @@ export default function AlgebraPage() {
 
                   return (
                     <div key={`${key}-${i}`} style={{ marginBottom: "0.1rem" }}>
-                      <div style={{ fontSize: "16px",  color: "#222" }}>
-                        {index + 1}.{subIndexGlobal} {sub}
+                      <div style={{ fontSize: "16px", color: "#222" }}>
+                        {c.originalIndex + 1}.{subIndexGlobal} {sub}
                       </div>
 
                       {subsubArray.length > 0 && (
-                        <div style={{ marginLeft: "1.5rem", fontSize: "14px" }}>
+                        <div
+                          style={{
+                            marginLeft: "1.5rem",
+                            fontSize: "14px",
+                          }}
+                        >
                           {subsubArray.map((s, ssIndex) => (
                             <div key={ssIndex}>
-                              {indexToLetter(ssIndex)}. {s}
+                              {String.fromCharCode(97 + ssIndex)}. {s}
                             </div>
                           ))}
                         </div>
@@ -167,7 +190,13 @@ export default function AlgebraPage() {
 
               {/* Teste */}
               {c.teste?.length > 0 && (
-                <div style={{ marginTop: "0.5rem", display: "flex", flexWrap: "wrap", gap: "0rem" }}>
+                <div
+                  style={{
+                    marginTop: "0.5rem",
+                    display: "flex",
+                    flexWrap: "wrap",
+                  }}
+                >
                   {c.teste.map((t, idx) => (
                     <Link
                       key={idx}
@@ -216,17 +245,14 @@ export default function AlgebraPage() {
                   className="cover-left"
                   style={{
                     position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
+                    inset: 0,
                     background: `url('/carte.png') no-repeat center/cover`,
                     borderRadius: "6px",
                     transformOrigin: "left",
                     zIndex: 2,
                     transition: "transform 0.2s",
                   }}
-                ></div>
+                />
               </div>
 
               <style jsx>{`
@@ -241,49 +267,6 @@ export default function AlgebraPage() {
           </div>
         );
       })}
-
-      {/* Butoane dev */}
-      {process.env.NODE_ENV === "development" && (
-        <div
-          style={{
-            marginTop: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            gap: "0.5rem",
-          }}
-        >
-          <button
-            onClick={() =>
-              (window.location.href =
-                "http://localhost:3000/creare-teste-teorie")
-            }
-            style={{
-              fontSize: "14px",
-              padding: "5px 10px",
-              border: "1px solid gray",
-              borderRadius: "6px",
-              cursor: "pointer",
-            }}
-          >
-            Creare Teste Teorie
-          </button>
-
-          <button
-            onClick={() =>
-              (window.location.href = "http://localhost:3000/creare-teorie")
-            }
-            style={{
-              fontSize: "14px",
-              padding: "5px 10px",
-              border: "1px solid gray",
-              borderRadius: "6px",
-              cursor: "pointer",
-            }}
-          >
-            Creare Teorie
-          </button>
-        </div>
-      )}
 
       {/* Înapoi */}
       <div style={{ marginTop: "1rem", textAlign: "center" }}>
