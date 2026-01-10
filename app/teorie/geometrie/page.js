@@ -268,6 +268,51 @@ export default function GeometriePage() {
         );
       })}
 
+
+
+      {/* Butoane creare (admin) */}
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "10px",
+    marginTop: "1rem",
+    marginBottom: "0.5rem",
+  }}
+>
+  <Link
+    href="/creare-teorie"
+    style={{
+      fontSize: "13px",
+      padding: "6px 12px",
+      borderRadius: "6px",
+      border: "1px solid #444",
+      background: "#eee",
+      color: "#000",
+      textDecoration: "none",
+    }}
+  >
+    Creare teorie
+  </Link>
+
+  <Link
+    href="/creare-teste-teorie"
+    style={{
+      fontSize: "13px",
+      padding: "6px 12px",
+      borderRadius: "6px",
+      border: "1px solid #444",
+      background: "#eee",
+      color: "#000",
+      textDecoration: "none",
+    }}
+  >
+    Creare teste – teorie
+  </Link>
+</div>
+
+
+
       {/* Înapoi */}
       <div style={{ marginTop: "1rem", textAlign: "center" }}>
         <Link
